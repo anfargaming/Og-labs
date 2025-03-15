@@ -1,0 +1,25 @@
+{
+  "name": "0g-token-farming",
+  "version": "1.0.0",
+  "description": "Da dung thì dung so, da so thi dung dung",
+  "main": "dancay.js",
+  "scripts": {
+    "start": "node dancay.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "blockchain",
+    "web3",
+    "farming",
+    "0g"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "web3": "^4.1.1",
+    "colors": "^1.4.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
