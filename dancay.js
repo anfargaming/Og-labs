@@ -333,7 +333,7 @@ async function main() {
   }
 
   log(`Found ${privateKeys.length} wallets`);
-  log('====== Mugen Airdrop - If you are scared, don\'t use it; if you use it, don\'t be scared ======', 'custom');
+  log('====== Airdrop Farmer - If you are scared, don\'t use it; if you use it, don\'t be scared ======', 'custom');
 
   for (const privateKey of privateKeys) {
     for (const [tag, address] of Object.entries(contracts)) {
@@ -346,5 +346,19 @@ async function main() {
   log('Completed!', 'success');
 }
 
-// Run the script
-main().catch(error => log(`Error: ${error.message}`, 'error'));
+// Function to run the script in a loop
+async function runLoop() {
+  while (true) {
+    try {
+      await main(); // Run the main function
+    } catch (error) {
+      log(`Error in main loop: ${error.message}`, 'error');
+    }
+
+    // Wait for 1 minute (60,000 milliseconds) before running again
+    await new Promise(resolve => setTimeout(resolve, 60000));
+  }
+}
+
+// Start the loop
+runLoop().catch(error => log(`Error in runLoop: ${error.message}`, 'error'));
